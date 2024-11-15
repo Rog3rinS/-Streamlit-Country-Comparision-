@@ -45,20 +45,21 @@ indicador_legivel = st.selectbox(
     options=list(indicadores_map.keys())
 )
 #GRAFICO DE INDICADOR POR ANO
+
 indicador = indicadores_map[indicador_legivel]
-fig, ax = plt.subplots(figsize=(10, 5))
-sns.lineplot(
-    data=dados_filtrados,
-    x='ano', y=indicador, hue='pais', marker="o", ax=ax
+dados_sorted = dados_filtrados.sort_values(by="ano")
+fig_line = px.line(
+    dados_sorted,
+    x="ano",
+    y=indicador,
+    color="pais",
+    hover_name="pais"
 )
-ax.set_title(f"Tendência de {indicador_legivel} por Ano")
-ax.set_xlabel("Ano")
-ax.set_ylabel(indicador_legivel)
-st.pyplot(fig)
+fig_line.update_xaxes(type="linear")
+st.plotly_chart(fig_line)
 
 # GRAFICO DE DISPERSÃO LIBERADE DE IMPRESA VS PERCEPCAO DE CORRUPCAO
 dados_filtrados_scatter = dados_filtrados[['pais', 'ano', 'indice_liberdade_imprensa', 'indice_percepcao_corrupcao']]
-
 fig_scatter = px.scatter(
     dados_filtrados_scatter,
     x="indice_liberdade_imprensa",
@@ -94,15 +95,10 @@ indicador_legivel2 = st.selectbox(
     options=list(indicadores_map2.keys())
 )
 #GRAFICO DE INDICADOR POR ANO
+
 indicador2 = indicadores_map[indicador_legivel2]
-fig_barra = plt.figure(figsize=(10, 5))
-sns.barplot(
-    data=dados_filtrados,
-    x='pais', y=indicador2, ci=None, palette="viridis"
-)
-plt.title(f"{indicador_legivel2} por País")
-plt.xticks(rotation=45)
-st.pyplot(fig_barra)
+fig_bar = px.bar(dados_filtrados, x="pais", y=indicador2)
+st.plotly_chart(fig_bar)
 
 indicadores_media_map = {
     "Pib em Trilhões de Dólares": 'pib_em_trilhoes_usd',
