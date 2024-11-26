@@ -154,7 +154,21 @@ ano_inicio, ano_fim = st.select_slider(
 indicadores_map = {
     "Pib em Trilhões de Dólares": 'pib_em_trilhoes_usd',
     "Pib per Capita (USD)": 'pib_per_capita_usd',
-    "Gasto com Saúde per Capita (USD)": 'gasto_com_saude_per_capita'
+    "População em Milhões": 'populacao_milhoes',
+    "Expectativa de Vida": 'expectativa_de_vida',
+    "Taxa de Inflação": 'taxa_de_inflacao',
+    "Taxa de Desemprego": 'taxa_desemprego',
+    "Taxa de Criminalidade": 'taxa_criminalidade',
+    "Gasto com Saúde per Capita (USD)": 'gasto_com_saude_per_capita',
+    "Proporção de Médicos para Paciente": 'proporcao_de_medico_para_paciente',
+    "Gasto Militar (Bilhões de USD)": 'gasto_militar_bilhoes_usd',
+    "Número de Militares Ativos": 'numero_militares_ativos',
+    "Índice de Igualdade de Gênero": 'indice_igualdade_genero',
+    "Taxa de Pobreza": 'taxa_pobreza',
+    "Índice de Percepção de Corrupção": 'indice_percepcao_corrupcao',
+    "Índice de Liberdade de Imprensa": 'indice_liberdade_imprensa',
+    "Taxa de Participação Votação": 'taxa_participacao_votacao',
+    "Taxa de Crescimento Populacional": 'taxa_de_crescimento_populacional',
 }
 
 indicador_legivel_crescimento = st.selectbox(
