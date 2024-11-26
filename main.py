@@ -22,6 +22,7 @@ def get_dataframe():
 cursor.close()
 conn.close()
 
+
 class DataPaises:
     def __init__(self, data_frame):
         self.data = data_frame
@@ -39,5 +40,7 @@ class DataPaises:
         if not resultado.empty:
             return resultado[indicador].values[0]
         else:
-            print(f"No data found for {nome_país} in {ano}.")
             return None
+
+
+# Função principal para Streamlit
