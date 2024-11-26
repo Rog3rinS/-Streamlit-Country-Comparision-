@@ -21,26 +21,3 @@ def get_dataframe():
 
 cursor.close()
 conn.close()
-
-
-class DataPaises:
-    def __init__(self, data_frame):
-        self.data = data_frame
-
-    def pegar_dados_de_pais(self, nome_país):
-        nome_país = self.data[self.data['pais'] == nome_país]
-        return nome_país
-
-    def pegar_dados_de_ano(self, ano):
-        data_ano = self.data[self.data['ano'] == ano]
-        return data_ano
-
-    def pegar_indicador_nomepaís_ano(self, nome_país, ano, indicador):
-        resultado = self.data[(self.data['pais'] == nome_país) & (self.data['ano'] == ano)]
-        if not resultado.empty:
-            return resultado[indicador].values[0]
-        else:
-            return None
-
-
-# Função principal para Streamlit
